@@ -3,8 +3,6 @@ name: Python CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   test:
@@ -24,6 +22,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Mostrar estructura del repo en el runner
+        run: |
+          pwd
+          ls
+          echo "Contenido de app/"
+          ls app || echo "NO EXISTE app"
+          echo "Contenido de test/"
+          ls test || echo "NO EXISTE test"
+
       - name: Ejecutar tests
         run: |
           pytest
+
