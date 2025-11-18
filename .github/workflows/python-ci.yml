@@ -33,5 +33,5 @@ jobs:
 
       - name: Ejecutar tests
         run: |
-          pytest
+          python -m pytest
 
